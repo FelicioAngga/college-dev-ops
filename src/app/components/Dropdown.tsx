@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import useOutsideClick from '../utils/useOutsideClick';
 import { signOut } from 'firebase/auth';
 import FirebaseConfiguration from '@/firebase/FirebaseConfiguration';
 import { useRouter } from 'next/navigation';
@@ -6,6 +7,7 @@ import { useRouter } from 'next/navigation';
 function Dropdown({ wrapperRef, onClose }: { wrapperRef: any, onClose: () => void }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  useOutsideClick(dropdownRef, wrapperRef, onClose);
 
   async function handleLogout() {
     onClose();

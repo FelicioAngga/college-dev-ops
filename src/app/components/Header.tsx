@@ -9,7 +9,7 @@ import { BsChat } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import Skeleton from 'react-loading-skeleton';
 import Dropdown from './Dropdown';
-import { fetchDiscussionsThunk } from '@/redux/slices/discussSlice';
+// import { fetchDiscussionsThunk } from '@/redux/slices/discussSlice';
 
 function Header() {
   const { user, fetchSuccess } = useSelector((states) => states.auth);
@@ -29,7 +29,7 @@ function Header() {
 
   function handleSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    dispatch(fetchDiscussionsThunk(searchText))
+    // dispatch(fetchDiscussionsThunk(searchText))
   }
 
   useEffect(() => {
@@ -56,8 +56,7 @@ function Header() {
       {isLoading ? 
       <div className="md:flex-1 h-[50px]"><Skeleton duration={0.6} width={232} height={50} className='!rounded-lg !ml-auto !block' highlightColor="#858EAD" baseColor="#2C353D" /></div> 
       : user ?
-        <div className="flex md:flex-1 gap-2 md:gap-6 my-auto">
-          <Link href="/chat" className="ml-auto"><div className="md:w-10 md:h-10 rounded-lg p-[10px] bg-[#2C353D]"><BsChat className="md:text-xl text-white" /></div></Link>
+        <div className="flex justify-end md:flex-1 gap-2 md:gap-6 my-auto">
           <div className="relative my-auto">
             <div ref={wrapperRef} onClick={() => setShowDropdown(prev => !prev)} className="flex ml-auto md:ml-0 cursor-pointer">
               <img className="w-7 h-7 md:w-10 md:h-10 rounded-xl object-cover block m-auto" src={user.photoURL || ""} alt="" referrerPolicy="no-referrer" />
