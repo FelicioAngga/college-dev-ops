@@ -19,12 +19,12 @@ function DiscussionDetail({ id }: { id: string }) {
     return timeSince(new Date(discussionDetail.created_at).getTime() / 1000);
   }
 
-  function handleLikeClick(like: boolean) {
-    if (!user) return;
-    setIsLiked(like);
-    setLikeCount(prev => like ? prev + 1 : prev - 1);
-    likeDiscussService(id, like);
-  }
+  // function handleLikeClick(like: boolean) {
+  //   if (!user) return;
+  //   setIsLiked(like);
+  //   setLikeCount(prev => like ? prev + 1 : prev - 1);
+  //   likeDiscussService(id, like);
+  // }
 
   useEffect(() => {
     dispatch(fetchDiscussionByIdThunk(id));
@@ -73,7 +73,7 @@ function DiscussionDetail({ id }: { id: string }) {
           </div>
         </div>
       </div>
-      <AiFillHeart onClick={() => handleLikeClick(!isLiked)} className={`${isLiked && 'text-red-500'} w-fit mt-4 shrink-0 text-xl my-auto cursor-pointer`} />
+      {/* <AiFillHeart onClick={() => handleLikeClick(!isLiked)} className={`${isLiked && 'text-red-500'} w-fit mt-4 shrink-0 text-xl my-auto cursor-pointer`} /> */}
     </div>
   )
 }
