@@ -15,6 +15,13 @@ function DiscussionItem(data: DiscussTypeRedux) {
     return timeSince(new Date(data.created_at).getTime() / 1000);
   }
 
+  function handleLikeClick(like: boolean) {
+    if (!user) return;
+    setIsLiked(like);
+    setLikeCount(prev => like ? prev + 1 : prev - 1);
+    likeDiscussService(data.docId, like);
+  }
+
   useEffect(() => {
     setLikeCount(data.likes?.length || 0);
     if (!user) {
@@ -36,6 +43,7 @@ function DiscussionItem(data: DiscussTypeRedux) {
             <Link href={`/discussion/${data.docId}`}>
               <div className="text-lg font-semibold overflow-hidden">{data.title}</div>
             </Link>
+            <AiFillHeart onClick={() => handleLikeClick(!isLiked)} className={`${isLiked && 'text-red-500'} cursor-pointer shrink-0 text-xl my-auto`} />
           </div>
 
           <Link href={`/discussion/${data.docId}`}>
