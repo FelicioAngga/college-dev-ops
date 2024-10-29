@@ -17,7 +17,7 @@ function MostLikedDiscuss() {
   if (loading) return <Skeleton duration={0.6} height={300} className='!min-w-[325px] !rounded-2xl' highlightColor="#2C353D" baseColor="#262D34" />
   return (
     <div className="min-w-[325px] h-fit rounded-2xl p-5 bg-[#262D34]">
-      <p className="font-semibold">Most Liked Discussion</p>
+      <p className="font-semibold">Most Trending Discussion</p>
       {sortedList.map((data, index) => {
         return(<Link key={index} href={`/discussion/${data.docId}`}>
         <div className="flex mt-5">
