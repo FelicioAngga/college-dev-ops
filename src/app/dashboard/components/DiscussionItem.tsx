@@ -43,7 +43,7 @@ function DiscussionItem(data: DiscussTypeRedux) {
             <Link href={`/discussion/${data.docId}`}>
               <div className="text-lg font-semibold overflow-hidden">{data.title}</div>
             </Link>
-            <AiFillHeart onClick={() => handleLikeClick(!isLiked)} className={`${isLiked && 'text-red-500'} cursor-pointer shrink-0 text-xl my-auto`} />
+            {/* <AiFillHeart onClick={() => handleLikeClick(!isLiked)} className={`${isLiked && 'text-red-500'} cursor-pointer shrink-0 text-xl my-auto`} /> */}
           </div>
 
           <Link href={`/discussion/${data.docId}`}>
